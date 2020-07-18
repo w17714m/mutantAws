@@ -26,9 +26,9 @@ Desarrolla el algoritmo de la manera más eficiente posible.
 
 ## Desafíos:
 
-###Nivel 1:
+#### Nivel 1:
 Programa (en cualquier lenguaje de programación) que cumpla con el método pedido por Magneto.
-###Nivel 2:
+#### Nivel 2:
 Crear una API REST, hostear esa API en un cloud computing libre (Google App Engine, Amazon AWS, etc), crear el servicio “/mutant/” en donde se pueda detectar si un humano es mutante enviando la secuencia de ADN mediante un HTTP POST con un Json el cual tenga el siguiente formato:
 
 POST → /mutant/
@@ -37,7 +37,7 @@ POST → /mutant/
 }
 
 En caso de verificar un mutante, debería devolver un HTTP 200-OK, en caso contrario un 403-Forbidden
-###Nivel 3:
+#### Nivel 3:
 Anexar una base de datos, la cual guarde los ADN’s verificados con la API. Solo 1 registro por ADN. Exponer un servicio extra “/stats” que devuelva un Json con las estadísticas de las verificaciones de ADN: 
     {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4} 
 Tener en cuenta que la API puede recibir fluctuaciones agresivas de tráfico (Entre 100 y 1 millón de peticiones por segundo).
@@ -48,26 +48,36 @@ Entregar:
 github).
 ● URL de la API (Nivel 2 y 3).
 
-####Documentación y ejecución
+##Documentación y ejecución
 
 #### URLS
+
 [POST] https://v8it0pdnv7.execute-api.us-east-1.amazonaws.com/dev/stats
 
 [POST] https://v8it0pdnv7.execute-api.us-east-1.amazonaws.com/dev/mutans
 
 [BODY] 
+
 MUTANT ==>{"dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}
+
 HUMAN ==>{"dna":["ATGCAT","GCATGC","ATGCAT","GCATGC","ATGCAT","GCATGC"]}
 
+#### HUMAN
+petición post
+![Human](img/human.png)
 
-<div style="text-align:center"><img src="img/human.png" /></div>
 
-<div style="text-align:center"><img src="img/mutant.png" /></div>
+#### MUTANT
+petición post
+![Mutant](img/mutant.png)
 
-<div style="text-align:center"><img src="img/stats.png" /></div>
+
+#### STATS
+petición post
+![Stats](img/stats.png)
 
 #### CLOUD Y ARQUITECTURA
 
 Se escogio aws lambda , ApiGateway y DynamoDB ya que son sistemas que si no se utilizan no generan facturación y ademas provee un sistema elastico que se encarga de crear instancias de las funciones lambda que se necesiten según el número de peticiones y es dinámico.
-
+<br/>
  <div style="text-align:center"><img src="img/amazonapi.jpeg" /></div>
