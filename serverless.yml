@@ -1,0 +1,67 @@
+service: enlistMutantsv1
+
+custom:
+  statsTableName: 'java-stats-v1'
+
+iamRoleStatements:
+  - Effect: "Allow"
+    Action:
+      - "dynamodb:*"
+    Resource: "*"
+
+provider:
+  name: aws
+  runtime: java8
+  stage: ${opt:stage, 'dev'}
+  region: "us-east-1"
+  environment:
+    PRODUCTS_TABLE_NAME: ${self:custom.statsTableName}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - { "Fn::GetAtt": ["StatsDynamoDBTable", "Arn" ] }
+
+resources:
+  Resources:
+    StatsDynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.statsTableName}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: tipo
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          - AttributeName: tipo
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
+package:
+  artifact: target/mutant_enlistv1-dev.jar
+
+functions:
+  mutant:
+    handler: com.mercadolibre.infrastructure.controller.MutantHandler
+    events:
+      - http:
+          path: '/mutant'
+          method: post
+  stats:
+    handler: com.mercadolibre.infrastructure.controller.StatsHandler
+    events:
+      - http:
+          path: '/stats'
+          method: post

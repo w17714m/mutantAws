@@ -1,0 +1,7 @@
+{
+  "resource": "/",
+  "path": "/mutant",
+  "httpMethod": "POST",
+  "body": "{\"dna\": [\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]}"
+}
+
