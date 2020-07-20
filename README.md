@@ -89,6 +89,6 @@ petición post
 
 #### CLOUD Y ARQUITECTURA
 
-Se escogio aws lambda , ApiGateway y DynamoDB ya que son sistemas que si no se utilizan no generan facturación y ademas provee un sistema elastico que se encarga de crear instancias de las funciones lambda que se necesiten según el número de peticiones y es dinámico.
+Se escogio aws lambda , ApiGateway y DynamoDB ya que son sistemas que tienen facturación mientras se esten ejecutando y ademas provee un sistema elastico que se encarga de crear instancias de las funciones lambda que se necesiten según el número de peticiones que ingresan, ademas se puede disminuir dinamicamente.
 <br/>
  <div style="text-align:center"><img src="img/amazonapi.jpeg" /></div>
