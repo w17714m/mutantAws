@@ -58,7 +58,7 @@ La ejecución de busqueda se realizó a través de hilos los cuales permiten una
 
 #### TEST
 
-![Human](img/test mayores a 80.png)
+![Human](img/test%20mayores%20a%2080.png)
 
 #### URLS
 
