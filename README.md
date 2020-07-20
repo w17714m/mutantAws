@@ -56,6 +56,10 @@ github).
 
 La ejecución de busqueda se realizó a través de hilos los cuales permiten una ejecución concurrente lo cual permite un mejor aprovechamiento de procesador y una respuesta mas rápida para obtener el resultado en llamados concurrentes y pruebas de stress.
 
+#### TEST
+
+![Human](img/test mayores a 80.png)
+
 #### URLS
 
 ```
