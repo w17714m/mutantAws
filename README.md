@@ -1,7 +1,7 @@
 
 # Java-ADN-Mutante
 
-<div style="text-align:center"><img src="img/marvelX.jpeg" /></div>
+<div style="text-align:center"><img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/magento-1568362613.jpg" /></div>
 
 - ### Examen:
 Magneto quiere reclutar la mayor cantidad de mutantes para poder lucharcontra los X-Men.
